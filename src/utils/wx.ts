@@ -1,11 +1,11 @@
 const NEXTDOOR_WE_XIN_MP_PAGE_PATHS = {
-	home: 'pages/index/index'
+	home: 'pages/splash/index'
 }
 
 /**
  * @description 生成 跳转至 小程序 的 path url
  */
-export const generateMpPathUrl = (
+export const generateMpPathURL = (
 	pathName: 'home',
 	trigger: 'click' | 'scan',
 	params?: Record<string, string>
@@ -28,6 +28,6 @@ export const generateMpPathUrl = (
 		}
 		case 'scan':
 		default:
-			return `https://m.bbearcard.cn/mp/${pathName}${pathParams ? `?${pathParams}` : ''}`
+			return `/${pathName}${pathParams ? `?${pathParams}` : ''}`
 	}
 }
