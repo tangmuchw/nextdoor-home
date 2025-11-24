@@ -1,0 +1,34 @@
+{
+	"printWidth": 80,
+	"tabWidth": 2,
+	"useTabs": true,
+	"semi": false,
+	"singleQuote": true,
+	"trailingComma": "none",
+	"bracketSpacing": true,
+	"arrowParens": "avoid",
+	"plugins": [
+		"@trivago/prettier-plugin-sort-imports",
+		"prettier-plugin-tailwindcss"
+	],
+	"tailwindFunctions": ["clsx"],
+	"tailwindStylesheet": "./src/styles/globals.scss",
+	"importOrder": [
+		"^node:",
+		"^(fs|path|os|child_process)$",
+
+		"^react$",
+		"^next(/.+)?$",
+		"^@?[w-]+",
+
+		"^@/(.*)$",
+		"^[.][.]/",
+		"^[.]/",
+
+		"^import type .* from",
+
+		"^(.*).(css|scss|less)$"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
+}

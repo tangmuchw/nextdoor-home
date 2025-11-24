@@ -1,0 +1,71 @@
+// ======================
+// 基础颜色变量
+// ======================
+
+$white: #ffffff;
+$black: #000000;
+
+$gray-50: #F8F9FA; // 浅紫色
+$gray-500: #8A2BE2; // logo 色
+
+$gray-600: #8A2BE2; // 主色 - 活力橙
+$gray-700: #E6D7F5; // 副标题/描述文字 
+$gray-800: #6A1CB9; // 主标题/重要文字色 
+
+$error-color: #e74c3c;
+
+// 主题色系
+// ======================
+$logo-color: $gray-500;
+$primary-color: $gray-600; // 主色 - 活力橙
+$secondary-color: $gray-700; // 副主色 - 巧克力色
+
+/* Font Color */
+$text-primary: $gray-800; // 主要文字 - 巧克力棕
+$text-secondary: $secondary-color; // 次要文字 - 红棕色
+$link-color: $gray-700; // 链接色 - 主色
+
+/* Border Color */
+$border-base: rgba(210, 180, 140, 0.3); // 浅橙色边框
+$border-split: rgba(190, 130, 90, 0.2); // 分割线色
+
+/* Background Color */
+$bg-body: $white; // body 颜色
+$bg-card: #fef4eb; // 通用 卡片，米白色
+$bg-msg-card: rgba(255, 228, 196, 0.5); // 消息类型 卡片  浅橙色背景
+
+$bg-disabled: #fef4eb; // 禁用背景
+$bg-mask: rgba(255, 182, 112, 0.1); // 遮罩背景
+
+/* Font Color */
+$text-primary: $gray-800; // 主要文字 - 巧克力棕
+$text-secondary: $secondary-color; // 次要文字 - 红棕色
+$link-color: $gray-700; // 链接色 - 主色
+$text-grey: #999;
+$text-link: rgb(138, 43, 226); // 主要文字 - 巧克力棕
+
+
+// ======================
+// Position
+// ======================
+$z-index-floor: 1; // 基础元素
+// $z-index-default: 10; // 常规内容 z-10
+$z-index-navigation: 20; // 导航栏
+$z-index-dropdown: 30; // 下拉菜单
+$z-index-sticky: 40; // 吸附元素
+$z-index-modal: 50; // 弹窗背景
+$z-index-max: 999; // 极端情况
+
+// ======================
+// Animate
+// ======================
+$animate-delays: 100,
+200,
+300,
+400,
+500,
+600;
+
+$animate-durations: 1000,
+1500,
+2000;

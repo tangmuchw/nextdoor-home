@@ -1,0 +1,180 @@
+'use client'
+
+import { config, library } from '@fortawesome/fontawesome-svg-core'
+import { faWeixin } from '@fortawesome/free-brands-svg-icons'
+import {
+	faArrowUp,
+	faBars,
+	faBolt,
+	faBriefcase,
+	faCat,
+	faCheck,
+	faChevronDown,
+	faChevronLeft,
+	faChevronRight,
+	faChevronUp,
+	faCommentAlt,
+	faComments,
+	faEllipsisH,
+	faEnvelope,
+	faEnvelopeOpenText,
+	faFaceSadTear,
+	faFaceSmileWink,
+	faHand,
+	faHandPointer,
+	faHandsHelping,
+	faHandshakeAngle,
+	faHeart,
+	faHome,
+	faHourglassHalf,
+	faHouseChimney,
+	faIdCard,
+	faInfoCircle,
+	faLeaf,
+	faLightbulb,
+	faLinkSlash,
+	faLock,
+	faPaperPlane,
+	faQrcode,
+	faQuestion,
+	faQuestionCircle,
+	faQuoteLeft,
+	faQuoteRight,
+	faRedoAlt,
+	faSearch,
+	faShieldAlt,
+	faSpa,
+	faSpinner,
+	faStar,
+	faStarHalf,
+	faTrophy,
+	faUser,
+	faUserFriends,
+	faUsers,
+	faXmark
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+const icons = {
+	faBars,
+	faBolt,
+	faBriefcase,
+	faCheck,
+	faChevronDown,
+	faChevronUp,
+	faComments,
+	faEllipsisH,
+	faHandPointer,
+	faHeart,
+	faHome,
+	faLeaf,
+	faSpa,
+	faStar,
+	faStarHalf,
+	faUser,
+	faUserFriends,
+	faUsers,
+	faXmark,
+	faCat,
+	faShieldAlt,
+	faFaceSmileWink,
+	faLock,
+	faLightbulb,
+	faHandsHelping,
+	faQuoteLeft,
+	faQuoteRight,
+	faEnvelopeOpenText,
+	faPaperPlane,
+	faInfoCircle,
+	faQrcode,
+	faWeixin,
+	faLinkSlash,
+	faHourglassHalf,
+	faEnvelope,
+	faCommentAlt,
+	faChevronRight,
+	faSearch,
+	faRedoAlt,
+	faChevronLeft,
+	faSpinner,
+	faArrowUp,
+	faTrophy,
+	faHand,
+	faFaceSadTear,
+	faHandshakeAngle,
+	faHouseChimney,
+	faQuestion,
+	faIdCard,
+	faQuestionCircle
+}
+
+// 手动选择需要使用的图标
+const usedIcons: { solid: AppDTO.IconName[] } = {
+	solid: [
+		'faHeart',
+		'faChevronUp',
+		'faChevronDown',
+		'faXmark',
+		'faBars',
+		'faStar',
+		'faStarHalf',
+		'faCheck',
+		'faUser',
+		'faComments',
+		'faBolt',
+		'faBriefcase',
+		'faUsers',
+		'faLeaf',
+		'faUserFriends',
+		'faSpa',
+		'faEllipsisH',
+		'faHandPointer',
+		'faHome',
+		'faShieldAlt',
+		'faLightbulb',
+		'faHandsHelping',
+		'faQuoteLeft',
+		'faQuoteRight',
+		'faEnvelopeOpenText',
+		'faPaperPlane',
+		'faInfoCircle',
+		'faQrcode',
+		'faWeixin',
+		'faLinkSlash',
+		'faHourglassHalf',
+		'faEnvelope',
+		'faCommentAlt',
+		'faChevronRight',
+		'faSearch',
+		'faRedoAlt',
+		'faChevronLeft',
+		'faSpinner',
+		'faArrowUp',
+		'faTrophy',
+		'faHand',
+		'faFaceSadTear',
+		'faHandshakeAngle',
+		'faHouseChimney',
+		'faQuestion',
+		'faIdCard',
+		'faQuestionCircle'
+	]
+	// regular: [],
+	// brands: []
+}
+
+// 配置 Font Awesome 核心
+config.autoAddCss = false // 禁用自动添加CSS
+
+// 按需添加图标到库
+usedIcons.solid.forEach(iconName => library.add(icons[iconName]))
+// usedIcons.regular.forEach(iconName => library.add(far[iconName]))
+// usedIcons.brands.forEach(iconName => library.add(fab[iconName]))
+
+// 导出 FontAwesomeIcon 组件
+
+const UsedFontAwesomeIcon = ({ icon }: { icon: AppDTO.IconName }) => {
+	return <FontAwesomeIcon icon={icons[icon]} />
+}
+
+export { UsedFontAwesomeIcon }

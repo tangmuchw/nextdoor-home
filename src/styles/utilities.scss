@@ -1,0 +1,43 @@
+@utility text-accent {
+    color: var(--primary-color);
+}
+
+@utility text-error {
+    color: var(--error-color);
+}
+
+@utility bg-accent {
+    background-color: var(--primary-color);
+}
+
+@utility border-accent {
+    border-color: var(--primary-color);
+}
+
+@utility border-error {
+    border-color: var(--error-color);
+}
+
+@utility bg-logo {
+    background-color: var(--logo-color);
+}
+
+@utility text-fill-color-transparent {
+    -webkit-text-fill-color: transparent;
+}
+
+@utility z-nav {
+    z-index: var(--z-index-navigation);
+}
+
+@utility z-sticky {
+    z-index: var(--z-index-sticky);
+}
+
+@utility z-modal {
+    z-index: var(--z-index-modal);
+}
+
+@utility z-max {
+    z-index: var(--z-index-max);
+}

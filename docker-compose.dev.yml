@@ -1,0 +1,42 @@
+services:
+  web:
+    build:
+      context: .
+      # 传递构建参数
+      args:
+        - NODE_ENV=production
+    image: bear-card-home:latest
+    container_name: bear-card-home
+    restart: unless-stopped
+
+    ports:
+      - '3000:3000'
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - app-network
+    env_file:
+      - .env.development # 生产环境变量文件
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    container_name: bear-card-redis
+    volumes:
+      - ./config/redis.conf:/etc/redis/redis.conf
+      - redis-data:/data
+    ports:
+      - '6379:6379'
+    networks:
+      - app-network
+    env_file:
+      - .env.development # 根据环境加载不同的文件
+
+networks:
+  app-network:
+    # 单主机
+    driver: bridge
+
+volumes:
+  redis-data:

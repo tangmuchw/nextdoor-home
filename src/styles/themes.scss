@@ -1,0 +1,43 @@
+@use './variables.scss'as *;
+
+$themes: (light: (primary-color: $primary-color,
+        bg-body: $bg-body,
+        bg-card: $bg-card,
+        bg-msg-card: $bg-msg-card,
+
+        text-black: $black,
+
+        text-primary: $text-primary,
+        text-secondary: $text-secondary,
+
+        logo-color: $logo-color,
+        error-color: $error-color,
+
+        z-index-floor: $z-index-floor,
+        z-index-navigation: $z-index-navigation,
+        z-index-dropdown: $z-index-dropdown,
+        z-index-sticky: $z-index-sticky,
+        z-index-modal: $z-index-modal,
+        z-index-max: $z-index-max));
+
+@mixin generate-themes {
+
+    @each $theme,
+    $map in $themes {
+        .#{$theme}-theme {
+
+            @each $key,
+            $value in $map {
+                --#{$key}: #{$value};
+            }
+        }
+    }
+}
+
+@mixin generate-animate-classes($prefix, $values) {
+    @each $value in $values {
+        .#{$prefix}-#{$value} {
+            #{$prefix}: #{$value}ms;
+        }
+    }
+}

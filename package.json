@@ -1,27 +1,45 @@
 {
-  "name": "nextdoor-home",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "next": "16.0.3",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "babel-plugin-react-compiler": "1.0.0",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.3",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  }
+	"name": "nextdoor-home",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "eslint",
+		"build:image": "DOCKER_BUILDKIT=1 docker compose build --force-rm",
+		"generate:seo": "node ./scripts/generate-seo-files.js",
+		"generate:version": "cross-env NODE_ENV=production && node ./scripts/generate-version-info.js"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^7.1.0",
+		"@fortawesome/free-brands-svg-icons": "^7.1.0",
+		"@fortawesome/free-solid-svg-icons": "^7.1.0",
+		"@fortawesome/react-fontawesome": "^3.1.0",
+		"clsx": "^2.1.1",
+		"dayjs": "^1.11.19",
+		"next": "16.0.3",
+		"postcss": "^8.5.6",
+		"react": "19.2.0",
+		"react-dom": "19.2.0",
+		"sass": "^1.94.2"
+	},
+	"devDependencies": {
+		"@tailwindcss/postcss": "^4.1.17",
+		"@trivago/prettier-plugin-sort-imports": "^6.0.0",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"babel-plugin-react-compiler": "1.0.0",
+		"cssnano": "^7.1.2",
+		"eslint": "^9",
+		"eslint-config-next": "^16.0.4",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-import": "^2.32.0",
+		"eslint-plugin-prettier": "^5.5.4",
+		"prettier": "^3.6.2",
+		"prettier-plugin-tailwindcss": "^0.7.1",
+		"tailwindcss": "^4.1.17",
+		"typescript": "^5"
+	}
 }

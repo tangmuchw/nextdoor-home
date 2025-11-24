@@ -1,0 +1,109 @@
+@use 'tailwindcss'as *;
+@use './variables.scss'as *;
+@use './animates.scss'as *;
+@use './themes.scss'as *;
+@use './utilities.scss'as *;
+
+
+@include generate-themes;
+@include generate-animate-classes('animate-delay', $animate-delays);
+@include generate-animate-classes('animate-duration', $animate-durations);
+
+@layer base {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* 全局滚动条样式 */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* 滚动条轨道 */
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    html {
+        /* 确保滚动平滑 */
+        scroll-behavior: smooth;
+
+        /* 火狐浏览器滚动条 */
+        scrollbar-width: thin;
+    }
+
+    body {
+        /* 动态根字体大小 (基于视口宽度) */
+        /* 关键配置 */
+        // 根据视口宽度在 14px 和 16px 之间自动缩放
+        // 2vw：动态参考值（视口宽度的 2%）
+        font-size: clamp(14px, 2vw, 16px);
+        /* 在 14px-16px 间动态变化 */
+        color: var(--text-black);
+        background: var(--bg-body);
+        font-family:
+            -apple-system,
+            SF UI Text,
+            Arial,
+            PingFang SC,
+            Hiragino Sans GB,
+            Microsoft YaHei,
+            WenQuanYi Micro Hei,
+            sans-serif;
+    }
+
+    button {
+        @apply min-h-[44px] min-w-[44px];
+    }
+}
+
+@layer components {
+    .bg-card {
+        background: var(--bg-card);
+    }
+
+    .bg-msg-card {
+        background: var(--bg-msg-card);
+    }
+
+    .app-link {
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+
+
+    .bg-primary-10 {
+        background: rgb(138 43 226 / 0.1);
+    }
+
+    svg {
+        @apply inline-block h-[1em];
+        display: inline-block;
+        height: 1em;
+        vertical-align: -0.125em;
+        box-sizing: content-box;
+        overflow: visible;
+    }
+}
+
+@theme {
+    --animate-shine: shine 2s infinite;
+    --animate-shine-end: shine-end 1.5s infinite;
+    --animate-bear-eyes-pulse: bear-eyes-pulse 1.5s infinite;
+    --animate-bear-eyes-pulse-reverse: bear-eyes-pulse 1.5s infinite reverse;
+    --animate-loading-bar: loading-bar 2s infinite;
+    --animate-rotate: rotate 1s linear infinite;
+
+    --animate-slide-in: slide-in 0.4s ease forwards;
+    --animate-slide-out: slide-out 0.4s ease forwards;
+    --animate-fade-in: fade-in 0.4s ease forwards;
+    --animate-fade-out: fade-out 0.4s ease forwards;
+
+    --ease-in-nav: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
