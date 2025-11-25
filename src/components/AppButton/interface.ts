@@ -3,7 +3,7 @@ export interface AppButtonProps extends AppDTO.ComponentBaseProps {
 	 * 类型, linear-orange 暖橘色渐变
 	 * @default default
 	 */
-	type?: 'primary' | 'default' | 'text' | 'linear-orange'
+	type?: 'primary' | 'default' | 'text' | 'linear-orange' | 'link'
 
 	/**
 	 * 禁用状态

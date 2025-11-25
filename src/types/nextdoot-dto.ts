@@ -50,6 +50,10 @@ declare namespace AppDTO {
 		| 'faQuestion'
 		| 'faIdCard'
 		| 'faQuestionCircle'
+		| 'faCheckCircle'
+		| 'faArrowRight'
+		| 'faHandBackFist'
+		| 'faComment'
 
 	interface ComponentBaseProps {
 		className?: string

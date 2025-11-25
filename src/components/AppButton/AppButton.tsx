@@ -26,6 +26,7 @@ const typeClasses = {
 		'bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium',
 	default: 'text-black shadow-md border border-solid border-[#ffb56b]',
 	text: '',
+	link: 'inline-flex items-center text-purple-600 font-medium hover:text-purple-700 transition-colors',
 	'linear-orange':
 		'bg-linear-to-br from-[#ff8d6b] to-[#ff6b6b] text-[#fff] shadow-md'
 }
@@ -68,13 +69,15 @@ const AppButton: React.FC<PropsWithChildren<AppButtonProps>> = props => {
 	}
 
 	const isOnlyIconBtn = icon && !children
+
+	const isText = type === 'text'
+	const isLink = type === 'link'
+
+	const notAllowed = disabled || loading
+	const canActiveHover = !notAllowed && hoverAnimate && !isText && !isLink
 	const btnClass = isOnlyIconBtn
 		? appIconButtonClass
 		: clsx(appTextButtonClass, sizeClasses[size])
-
-	const notAllowed = disabled || loading
-	const isText = type === 'text'
-	const canActiveHover = !notAllowed && hoverAnimate && !isText
 
 	return (
 		<button
@@ -96,6 +99,7 @@ const AppButton: React.FC<PropsWithChildren<AppButtonProps>> = props => {
 				<a
 					className="top-0 left-0 absolute size-full"
 					href={href}
+					target="_blank"
 					rel="nofollow noopener"
 				/>
 			)}

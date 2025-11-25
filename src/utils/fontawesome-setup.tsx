@@ -3,16 +3,19 @@
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import { faWeixin } from '@fortawesome/free-brands-svg-icons'
 import {
+	faArrowRight,
 	faArrowUp,
 	faBars,
 	faBolt,
 	faBriefcase,
 	faCat,
 	faCheck,
+	faCheckCircle,
 	faChevronDown,
 	faChevronLeft,
 	faChevronRight,
 	faChevronUp,
+	faComment,
 	faCommentAlt,
 	faComments,
 	faEllipsisH,
@@ -21,6 +24,7 @@ import {
 	faFaceSadTear,
 	faFaceSmileWink,
 	faHand,
+	faHandBackFist,
 	faHandPointer,
 	faHandsHelping,
 	faHandshakeAngle,
@@ -105,7 +109,11 @@ const icons = {
 	faHouseChimney,
 	faQuestion,
 	faIdCard,
-	faQuestionCircle
+	faQuestionCircle,
+	faCheckCircle,
+	faArrowRight,
+	faHandBackFist,
+	faComment
 }
 
 // 手动选择需要使用的图标
@@ -157,7 +165,11 @@ const usedIcons: { solid: AppDTO.IconName[] } = {
 		'faHouseChimney',
 		'faQuestion',
 		'faIdCard',
-		'faQuestionCircle'
+		'faQuestionCircle',
+		'faCheckCircle',
+		'faArrowRight',
+		'faHandBackFist',
+		'faComment'
 	]
 	// regular: [],
 	// brands: []

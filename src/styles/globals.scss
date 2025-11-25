@@ -82,6 +82,10 @@
         background: rgb(138 43 226 / 0.1);
     }
 
+    .text-primary {
+        color: var(--text-primary)
+    }
+
     svg {
         @apply inline-block h-[1em];
         display: inline-block;
@@ -93,6 +97,7 @@
 }
 
 @theme {
+    --animate-float: float 3s ease-in-out infinite;
     --animate-plus: plus 3s ease-in-out infinite;
     --animate-shine: shine 2s infinite;
     --animate-shine-end: shine-end 1.5s infinite;
