@@ -1,0 +1,15 @@
+
+**/node_modules
+**/Dockerfile
+**/docker-compose*
+**/.git
+**/yarn-error.log
+**/README.md
+**/test
+
+mock
+# dist
+tests
+.*
+scripts
+.next

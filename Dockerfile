@@ -73,7 +73,7 @@ COPY --from=builder /app/.next/static ./.next/static
 # COPY ./public /app/public
 
 RUN printf '{"app_env":"%s","app_tag":"%s","build_time":"%s"}\n' \
-    "$APP_ENV" "$APP_TAG" "$(date +%Y-%m-%dT%H:%M:%S%z)" > /app/version.json
+    "$APP_ENV" "$APP_TAG" "$(date +%Y-%m-%d_%H:%M:%S)" > /app/version.json
 
 # 暴露端口并启动
 EXPOSE 3000
