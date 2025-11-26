@@ -86,6 +86,12 @@ ssh -i $SERVER_ACCESS_PRIVATE_KEY root@$SERVER_IP bash << EOF
   echo "🟢 Deployment successful! Environment: ${APP_ENV}, Application: $APP_NAME:$APP_TAG"
 EOF
 
+# 7. 清理本地临时文件
+echo "✅ Delete temp files..."
+rm -f $IMAGE_FILE
+rm -f ./public/robots.txt ./public/sitemap.xml ./public/version.json
+
+
 log_info "🎉 Delete temp files..."
 rm -rf $IMAGE_TAR_FILE
 
