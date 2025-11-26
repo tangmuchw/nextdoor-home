@@ -130,7 +130,7 @@ export default function Home() {
 								</h2>
 								<p className="text-lg mb-8">
 									Nextdoor
-									是专为邻里设计的微信小程序社交平台，让您与「邻居」建立联系，交换资源，获取本地最鲜活的资讯，获得帮助。
+									是专为邻里设计的微信小程序社交平台，让您与「邻居」建立联系，交换资源，互帮互助，获取本地最鲜活的资讯，发现商业机会，实现共赢。
 								</p>
 							</div>
 							<div className="rounded-xl p-8 flex flex-col items-center border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.15)] text-center">
