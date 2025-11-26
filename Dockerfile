@@ -50,10 +50,13 @@ RUN --mount=type=cache,target=/app/.next/cache \
 # ========== 阶段3: 生产运行时 ==========
 FROM node:20.19-alpine AS runner
 
+ARG APP_ENV
 ARG APP_TAG
 
+ENV APP_ENV=${APP_ENV}
 ENV APP_TAG=${APP_TAG}
 ENV TZ=Asia/Shanghai
+
 # 添加公司元数据
 LABEL maintainer="chenwei@bbearcard.cn" \
     org.opencontainers.image.vendor="pangmaomibuchiyu" \

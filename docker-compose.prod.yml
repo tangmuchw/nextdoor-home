@@ -5,6 +5,7 @@ services:
       # 传递构建参数
       args:
         - APP_ENV=prod
+        - APP_TAG=${APP_TAG}
     image: nextdoor-home:latest
     container_name: nextdoor-home
     restart: unless-stopped
