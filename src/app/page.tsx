@@ -7,9 +7,95 @@ import { useEffect, useState } from 'react'
 import { AppImage, Icon, PageContainer } from '@/components'
 import AppButton from '@/components/AppButton'
 import { OUTER_LINKS } from '@/constants/links'
+import { HOME_NAV_LINKS } from '@/constants/nav'
+import { PAGE_PATHS } from '@/constants/path'
 import useDebounce from '@/hooks/useDebounce'
 import useIsMobile from '@/hooks/useIsMobile'
 import { generateMpPathURL } from '@/utils/wx'
+
+const FEATURES: { icon: AppDTO.IconName; title: string; desc: string }[] = [
+	{
+		icon: 'faIdCard',
+		title: '邻里名片',
+		desc: '创建专属邻里名片，轻松认识同楼邻居，建立真实可信的社区联系。'
+	},
+	{
+		icon: 'faQuestionCircle',
+		title: '邻里问答',
+		desc: '有问题问邻居！从生活窍门到社区信息，快速获得靠谱的本地答案。'
+	},
+	{
+		icon: 'faLightbulb',
+		title: '分享想法',
+		desc: '随时分享生活点滴、有趣见闻，与邻里交流心得，发现共同兴趣。'
+	},
+	{
+		icon: 'faUsers',
+		title: '线下沙龙',
+		desc: '发现并参与附近的社区活动，结交新朋友，丰富您的社交生活。'
+	}
+]
+
+const MEMBERS: {
+	id: 'free-vip' | 'month-vip'
+	title: string
+	price: string
+	period: string
+	benefits: string[]
+}[] = [
+	{
+		id: 'free-vip',
+		title: '免费会员',
+		price: '0',
+		period: '注册就送，永久免费',
+		benefits: [
+			'免费参加线下沙龙活动',
+			'免费提问咨询，获得专业回答',
+			'免费登记名片，被动获取订单',
+			'社区经济自营服务（最高1%收费）',
+			'可申请开通"邻里印象"服务'
+		]
+	},
+	{
+		id: 'month-vip',
+		title: '月卡会员',
+		price: '30',
+		period: '每月',
+		benefits: [
+			'包含所有免费会员权益',
+			'尊贵标识，提升信任度',
+			'平台每日协助对接圈子会员',
+			'平台主动推荐匹配客户',
+			'学习邻里社交和互联网方法论',
+			'问答客资提醒，不错过机会',
+			'满12个月可选择加盟，分成50%',
+			'...'
+		]
+	}
+]
+
+const ADDITIONAL_SERVICES: {
+	id: 'impression' | 'theme-group'
+	icon: AppDTO.IconName
+	title: string
+	desc: string
+	price: string
+}[] = [
+	{
+		id: 'impression',
+		icon: 'faHandBackFist',
+		title: '邻里印象',
+		desc: '经过严格审核后开通，展示您在邻里中的良好印象',
+		price: '免费申请'
+	},
+	{
+		id: 'theme-group',
+		icon: 'faComment',
+		title: '主题群服务',
+		desc: '进入特定微信群，名片分享和抢红包，拓展社交圈',
+		price: '¥98/次'
+	}
+]
 
 export default function Home() {
 	const isMobile = useIsMobile()
@@ -30,97 +116,16 @@ export default function Home() {
 		// eslint-disable-next-line
 	}, [])
 
-	const features: { icon: AppDTO.IconName; title: string; desc: string }[] = [
-		{
-			icon: 'faIdCard',
-			title: '邻里名片',
-			desc: '创建专属邻里名片，轻松认识同楼邻居，建立真实可信的社区联系。'
-		},
-		{
-			icon: 'faQuestionCircle',
-			title: '邻里问答',
-			desc: '有问题问邻居！从生活窍门到社区信息，快速获得靠谱的本地答案。'
-		},
-		{
-			icon: 'faLightbulb',
-			title: '分享想法',
-			desc: '随时分享生活点滴、有趣见闻，与邻里交流心得，发现共同兴趣。'
-		},
-		{
-			icon: 'faUsers',
-			title: '线下沙龙',
-			desc: '发现并参与附近的社区活动，结交新朋友，丰富您的社交生活。'
-		}
-	]
-
-	const vips: {
-		id: 'free-vip' | 'month-vip'
-		title: string
-		price: string
-		period: string
-		benefits: string[]
-	}[] = [
-		{
-			id: 'free-vip',
-			title: '免费会员',
-			price: '0',
-			period: '注册就送，永久免费',
-			benefits: [
-				'免费参加线下沙龙活动',
-				'免费提问咨询，获得专业回答',
-				'免费登记名片，被动获取订单',
-				'社区经济自营服务（最高1%收费）',
-				'可申请开通"邻里印象"服务'
-			]
-		},
-		{
-			id: 'month-vip',
-			title: '月卡会员',
-			price: '30',
-			period: '每月',
-			benefits: [
-				'包含所有免费会员权益',
-				'尊贵标识，提升信任度',
-				'平台每日协助对接圈子会员',
-				'平台主动推荐匹配客户',
-				'学习邻里社交和互联网方法论',
-				'问答客资提醒，不错过机会',
-				'满12个月可选择加盟，分成50%',
-				'...'
-			]
-		}
-	]
-
-	const additionalServices: {
-		id: 'impression' | 'theme-group'
-		icon: AppDTO.IconName
-		title: string
-		desc: string
-		price: string
-	}[] = [
-		{
-			id: 'impression',
-			icon: 'faHandBackFist',
-			title: '邻里印象',
-			desc: '经过严格审核后开通，展示您在邻里中的良好印象',
-			price: '免费申请'
-		},
-		{
-			id: 'theme-group',
-			icon: 'faComment',
-			title: '主题群服务',
-			desc: '进入特定微信群，名片分享和抢红包，拓展社交圈',
-			price: '¥98/次'
-		}
-	]
-
 	const mpPathURLHomeClick = generateMpPathURL('home', 'click')
 
 	return (
-		<PageContainer>
+		<PageContainer header={{ links: HOME_NAV_LINKS }}>
 			{/* banner */}
 			<section className="banner-section text-white relative overflow-hidden bg-linear-135 from-[#8B5CF6] to-[#6D28D9]">
-				<div className="hero-pattern inset-0 bg-[url(data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'><path fill='%23ffffff' fill-opacity='0.1' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'></path></svg>)] absolute bg-cover bg-bottom"></div>
+				<div
+					className={clsx('top-0 left-0 banner-pattern absolute size-full')}
+				></div>
+
 				<div className="px-5 py-24 relative z-10 container mx-auto">
 					<div className="lg:grid-cols-2 gap-12 grid grid-cols-1 items-center">
 						<div className="lg:text-left text-center">
@@ -129,16 +134,17 @@ export default function Home() {
 							</h2>
 							<p className="text-lg mb-8">
 								Nextdoor
-								是专为邻里设计的微信小程序社交平台，让您与「邻居」建立联系，共享资源，共同建设美好社区。
+								是专为邻里设计的微信小程序社交平台，让您与「邻居」建立联系，交换资源，获取本地最鲜活的资讯，获得帮助。
 							</p>
 						</div>
-						<div className="bg-white/15 backdrop-blur-md rounded-xl p-8 flex flex-col items-center text-center">
+						<div className="rounded-xl p-8 flex flex-col items-center border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.15)] text-center">
 							<div className="bg-white w-48 h-48 rounded-lg p-4 shadow-lg mb-5">
-								<div className="bg-gray-100 rounded flex h-full w-full animate-plus items-center justify-center">
+								<div className="bg-gray-100 rounded flex size-full animate-plus items-center justify-center">
 									<AppImage
 										src="/imgs/mp_code_430x430.jpg"
 										width={430}
 										height={430}
+										loading="eager"
 									/>
 								</div>
 							</div>
@@ -165,7 +171,7 @@ export default function Home() {
 						</p>
 					</div>
 					<div className="md:grid-cols-2 lg:grid-cols-4 gap-6 grid grid-cols-1">
-						{features.map(({ icon, title, desc }, idx) => {
+						{FEATURES.map(({ icon, title, desc }, idx) => {
 							return (
 								<div
 									key={idx}
@@ -194,7 +200,7 @@ export default function Home() {
 					</p>
 
 					<div className="md:grid-cols-2 gap-8 max-w-4xl mx-auto grid grid-cols-1">
-						{vips.map(({ id, title, price, period, benefits }, idx) => {
+						{MEMBERS.map(({ id, title, price, period, benefits }, idx) => {
 							const isMonthVip = id === 'month-vip'
 
 							return (
@@ -227,7 +233,7 @@ export default function Home() {
 									</div>
 
 									{/* 权益 */}
-									<div className="membership-features p-5 flex-grow">
+									<div className="membership-FEATURES p-5 flex-grow">
 										{benefits.map((txt, bIdx) => {
 											return (
 												<div
@@ -263,7 +269,7 @@ export default function Home() {
 
 					{/* 查看更多会员服务链接 */}
 					<div className="mt-12 text-center">
-						<AppButton type="link" href="/">
+						<AppButton type="link" href={PAGE_PATHS['member']}>
 							<span>查看更多会员服务详情</span>
 							<Icon name="faArrowRight" className="ml-2"></Icon>
 						</AppButton>
@@ -281,7 +287,7 @@ export default function Home() {
 						</p>
 					</div>
 					<div className="md:grid-cols-2 gap-8 max-w-4xl mx-auto grid grid-cols-1">
-						{additionalServices.map(({ id, icon, title, desc, price }) => {
+						{ADDITIONAL_SERVICES.map(({ id, icon, title, desc, price }) => {
 							const isImpression = id === 'impression'
 
 							return (
@@ -297,7 +303,7 @@ export default function Home() {
 									{isImpression ? (
 										<AppButton
 											type="link"
-											href={OUTER_LINKS['neighborhoodImpression']}
+											href={OUTER_LINKS['neighborhoodImpressionIntro']}
 										>
 											{price}
 										</AppButton>

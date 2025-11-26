@@ -49,7 +49,7 @@ $text-link: rgb(138, 43, 226); // 主要文字 - 巧克力棕
 // Position
 // ======================
 $z-index-floor: 1; // 基础元素
-// $z-index-default: 10; // 常规内容 z-10
+$z-index-default: 10; // 常规内容 z-10
 $z-index-navigation: 20; // 导航栏
 $z-index-dropdown: 30; // 下拉菜单
 $z-index-sticky: 40; // 吸附元素

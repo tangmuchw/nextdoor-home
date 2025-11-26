@@ -20,6 +20,7 @@ const PageContainer: React.FC<PropsWithChildren<PageContainerProps>> = ({
 	showFooter = true,
 	showScrollTopBtn = false,
 	autoScrollTop = false,
+	header: headerProps,
 	footer: footerProps
 }) => {
 	const screenHeightRef = useRef<number>(0)
@@ -79,7 +80,7 @@ const PageContainer: React.FC<PropsWithChildren<PageContainerProps>> = ({
 			)}
 		>
 			{/* 头部 */}
-			{showHeader && <Header />}
+			{showHeader && <Header {...headerProps} />}
 
 			{/* 正文 */}
 			<main className="page-container-content relative mx-auto">

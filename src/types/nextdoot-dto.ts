@@ -54,6 +54,18 @@ declare namespace AppDTO {
 		| 'faArrowRight'
 		| 'faHandBackFist'
 		| 'faComment'
+		| 'faCrown'
+		| 'faBell'
+		| 'faChartLine'
+		| 'faGem'
+		| 'faHandshake'
+		| 'faProjectDiagram'
+		| 'faStore'
+		| 'faDollarSign'
+		| 'faPhoneAlt'
+		| 'faHeadset'
+		| 'faPhone'
+		| 'faBusinessTime'
 
 	interface ComponentBaseProps {
 		className?: string

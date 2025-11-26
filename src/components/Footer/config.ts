@@ -1,3 +1,6 @@
+import { OUTER_LINKS } from '@/constants/links'
+import { PAGE_PATHS } from '@/constants/path'
+
 export const FOOTER_LINKS: {
 	title: string
 	links: {
@@ -30,19 +33,15 @@ export const FOOTER_LINKS: {
 		title: '产品服务',
 		links: [
 			{
-				href: '#',
+				href: PAGE_PATHS['home'],
 				text: '核心功能'
 			},
 			{
-				href: '#',
+				href: PAGE_PATHS['member'],
 				text: '会员服务'
 			},
 			{
-				href: '#',
-				text: '附加服务'
-			},
-			{
-				href: '#',
+				href: OUTER_LINKS['versionUpdateLogs'],
 				text: '更新日志'
 			}
 		]
@@ -50,20 +49,20 @@ export const FOOTER_LINKS: {
 	{
 		title: '帮助支持',
 		links: [
+			// {
+			// 	href: '#',
+			// 	text: '使用指南'
+			// },
+			// {
+			// 	href: '#',
+			// 	text: '常见问题'
+			// },
 			{
-				href: '#',
-				text: '使用指南'
-			},
-			{
-				href: '#',
-				text: '常见问题'
-			},
-			{
-				href: '#',
+				href: PAGE_PATHS['contact'],
 				text: '联系我们'
 			},
 			{
-				href: '#',
+				href: OUTER_LINKS['suggestions'],
 				text: '意见反馈'
 			}
 		]
@@ -74,19 +73,19 @@ export const FOOTER_LINKS: {
 			{
 				href: '#',
 				text: '微信公众号'
-			},
-			{
-				href: '#',
-				text: '微博'
-			},
-			{
-				href: '#',
-				text: '抖音'
-			},
-			{
-				href: '#',
-				text: '小红书'
 			}
+			// {
+			// 	href: '#',
+			// 	text: '微博'
+			// },
+			// {
+			// 	href: '#',
+			// 	text: '抖音'
+			// },
+			// {
+			// 	href: '#',
+			// 	text: '小红书'
+			// }
 		]
 	}
 ]

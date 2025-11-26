@@ -1,1 +1,1 @@
-export interface XxxProps extends BBearSchema.ComponentBaseProps {}
+export interface XxxProps extends AppDTO.ComponentBaseProps {}

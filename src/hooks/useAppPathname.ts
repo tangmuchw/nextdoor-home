@@ -2,14 +2,14 @@
 
 import { usePathname } from 'next/navigation'
 
-import { PATH_NAME_GUIDANCE } from '@/constants/path'
+import { PAGE_PATHS } from '@/constants/path'
 
 function useAppPathname() {
 	const pathname = usePathname()
 
-	const isHome = pathname === PATH_NAME_GUIDANCE['home']
-	const isAbout = pathname === PATH_NAME_GUIDANCE['about']
-	const isNotFound = !Object.values(PATH_NAME_GUIDANCE).includes(pathname)
+	const isHome = pathname === PAGE_PATHS['home']
+	const isAbout = pathname === PAGE_PATHS['about']
+	const isNotFound = !Object.values(PAGE_PATHS).includes(pathname)
 
 	return {
 		isHome,
