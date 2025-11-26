@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+      # 传递构建参数
+      args:
+        - APP_ENV=prod
+    image: nextdoor-home:latest
+    container_name: nextdoor-home
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    security_opt:
+      - no-new-privileges:true # 限制容器内进程获取新的特权 
+

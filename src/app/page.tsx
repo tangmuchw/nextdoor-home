@@ -256,7 +256,7 @@ export default function Home() {
 													type="primary"
 													size="sm"
 													className="w-full"
-													href="/"
+													href={PAGE_PATHS['member']}
 												>
 													了解详情
 												</AppButton>

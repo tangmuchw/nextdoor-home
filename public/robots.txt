@@ -1,0 +1,7 @@
+# Robots.txt generated at 2025-11-27T03:28:30+08:00
+User-agent: *
+Disallow: /share/
+Disallow: /_next/
+Disallow: /mp/
+
+Sitemap: https://www.baicl.cc/sitemap.xml

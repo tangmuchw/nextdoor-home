@@ -11,12 +11,9 @@ const lastModIOSString = dayjs().format()
 function generateRobotsTxt() {
 	const content = `# Robots.txt generated at ${lastModIOSString}
 User-agent: *
-Disallow: /api/
 Disallow: /share/
 Disallow: /_next/
-Disallow: /ui/
 Disallow: /mp/
-Disallow: /api-docs
 
 Sitemap: ${SEO_CONFIG.domain}/sitemap.xml
 `

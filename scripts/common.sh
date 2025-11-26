@@ -56,6 +56,7 @@ get_app_tag() {
     
     # 如果找不到 tag，直接退出
     if [ -z "$latest_tag" ]; then
+        log_error "Failed to get git tag (maybe no tags in repository)"
         exit 1; 
     fi
 
