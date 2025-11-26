@@ -5,12 +5,13 @@ services:
       # 传递构建参数
       args:
         - APP_ENV=prod
-        - APP_TAG=${APP_TAG}
     image: nextdoor-home:latest
     container_name: nextdoor-home
     restart: unless-stopped
     ports:
       - '3000:3000'
+    environment:
+      - TZ=Asia/Shanghai
     security_opt:
       - no-new-privileges:true # 限制容器内进程获取新的特权 
 

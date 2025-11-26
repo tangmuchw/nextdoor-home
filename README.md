@@ -17,11 +17,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ```sh
 
-docker compose -f docker-compose.dev.yml --env-file .env.development -p nextdoor-home-dev up -d --no-build
-docker compose -f docker-compose.dev.yml --env-file .env.development -p nextdoor-home-dev down
+docker compose -f docker-compose.dev.yml --env-file .env.dev -p nextdoor-home-dev up -d --no-build
+docker compose -f docker-compose.dev.yml --env-file .env.dev -p nextdoor-home-dev down
 
-docker compose -f docker-compose.prod.yml --env-file .env.production -p nextdoor-home-prod up -d --no-build
-docker compose -f docker-compose.prod.yml --env-file .env.production -p nextdoor-home-prod down
+docker compose -f docker-compose.prod.yml --env-file .env.prod -p nextdoor-home-prod up -d --no-build
+docker compose -f docker-compose.prod.yml --env-file .env.prod -p nextdoor-home-prod down
 ```
 
 ## env 文件说明
