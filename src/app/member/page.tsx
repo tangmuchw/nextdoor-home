@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 
-import { Icon } from '@/components'
+import { Animated, Banner, Icon } from '@/components'
 import AppButton from '@/components/AppButton'
 import { PAGE_PATHS } from '@/constants/path'
 
@@ -92,13 +92,7 @@ const MEMBERSHIP_TYPES: {
 export default function Member() {
 	return (
 		<>
-			<section
-				className={clsx(
-					'banner',
-					'bg-linear-135 from-[#8B5CF6] to-[#6D28D9]',
-					'text-white relative overflow-hidden'
-				)}
-			>
+			<Banner>
 				<div
 					className={clsx('banner-pattern top-0 left-0 absolute size-full')}
 				/>
@@ -112,191 +106,212 @@ export default function Member() {
 
 				<div className="px-4 py-16 md:py-24 container mx-auto">
 					<div className="hero-content lg:flex-row relative z-[10] flex flex-col items-center justify-between">
-						<div className="lg:w-1/2 mb-10 lg:mb-0 lg:text-left stagger-animation text-center">
-							<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-								解锁邻里社交
-								<br />
-								无限可能
-							</h1>
-							<p className="text-xl md:text-2xl mb-8 opacity-90">
-								加入Nextdoor会员，连接更多资源，创造更大价值
-							</p>
+						<div className="lg:w-1/2 mb-10 lg:mb-0 lg:text-left text-center">
+							<Animated>
+								<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+									解锁邻里社交
+									<br />
+									无限可能
+								</h1>
+								<p className="text-xl md:text-2xl mb-8 opacity-90">
+									加入Nextdoor会员，连接更多资源，创造更大价值
+								</p>
 
-							<div className="sm:flex-row lg:justify-start gap-4 flex flex-col justify-center">
-								<a
-									href="#monthly"
-									className={clsx(
-										styles['pulse-animation'],
-										'bg-white text-purple-600 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 flex items-center justify-center transition-colors'
-									)}
-								>
-									<Icon name="faCrown" className="mr-2"></Icon>
-									立即加入会员
-								</a>
-								<a
-									href="#free"
-									className="border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-opacity-10 flex items-center justify-center border-2 bg-transparent transition-colors"
-								>
-									<Icon name="faInfoCircle" className="mr-2"></Icon>
-									了解更多
-								</a>
-							</div>
-
-							<div className="mt-10 gap-4 grid grid-cols-2">
-								{MEMBER_INTROS.map((txt, idx) => {
-									return (
-										<div key={idx} className="flex items-center">
-											<Icon
-												name="faCheckCircle"
-												className="text-green-300 mr-2"
-											/>
-											<span>{txt}</span>
-										</div>
-									)
-								})}
-							</div>
-						</div>
-
-						<div className="lg:w-2/5 w-full">
-							<div
-								className={clsx(
-									'membership-card stagger-animation',
-									'backdrop-blur-10 rounded-4xl p-6 shadow-md border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.15)]'
-								)}
-							>
-								<div className="mb-6 text-center">
-									<div className="w-16 h-16 bg-white mb-4 mx-auto flex items-center justify-center rounded-full">
-										<Icon name="faCrown" className="text-purple-600 text-2xl" />
-									</div>
-									<h3 className="text-2xl font-bold">月卡会员</h3>
-									<div className="text-3xl font-bold mt-2">
-										¥30<span className="text-lg font-normal">/月</span>
-									</div>
-									<p className="text-sm mt-2 opacity-80">
-										最适合大多数邻居的选择
-									</p>
+								<div className="sm:flex-row lg:justify-start gap-4 flex flex-col justify-center">
+									<a
+										href="#monthly"
+										className={clsx(
+											styles['pulse-animation'],
+											'bg-white text-purple-600 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 flex items-center justify-center transition-colors'
+										)}
+									>
+										<Icon name="faCrown" className="mr-2"></Icon>
+										立即加入会员
+									</a>
+									<a
+										href="#free"
+										className="border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-opacity-10 flex items-center justify-center border-2 bg-transparent transition-colors"
+									>
+										<Icon name="faInfoCircle" className="mr-2"></Icon>
+										了解更多
+									</a>
 								</div>
 
-								<div className="space-y-4 mb-6">
-									{BENEFITS.map(({ icon, title, desc }, idx) => {
+								<div className="mt-10 gap-4 grid grid-cols-2">
+									{MEMBER_INTROS.map((txt, idx) => {
 										return (
-											<div
-												className="benefit-item mb-4 flex items-center"
-												key={idx}
-											>
-												<div
-													className={clsx(
-														'benefit-icon',
-														'size-[40px] rounded-full bg-[rgba(255,255,255,0.2)]',
-														'mr-4 flex shrink-0 items-center justify-center'
-													)}
-												>
-													<Icon name={icon} className="text-white" />
-												</div>
-												<div>
-													<p className="font-medium">{title}</p>
-													<p className="text-sm opacity-80">{desc}</p>
-												</div>
+											<div key={idx} className="flex items-center">
+												<Icon
+													name="faCheckCircle"
+													className="text-green-300 mr-2"
+												/>
+												<span>{txt}</span>
 											</div>
 										)
 									})}
 								</div>
+							</Animated>
+						</div>
 
-								<a
-									href="#monthly"
-									className="bg-white text-purple-600 font-semibold py-3 rounded-lg hover:bg-gray-100 block w-full text-center transition-colors"
+						<div className="lg:w-2/5 w-full">
+							<Animated>
+								<div
+									className={clsx(
+										'membership-card',
+										'backdrop-blur-10 rounded-4xl p-6 shadow-md border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.15)]'
+									)}
 								>
-									查看全部权益
-								</a>
-							</div>
+									<div className="mb-6 text-center">
+										<div className="w-16 h-16 bg-white mb-4 mx-auto flex items-center justify-center rounded-full">
+											<Icon
+												name="faCrown"
+												className="text-purple-600 text-2xl"
+											/>
+										</div>
+										<h3 className="text-2xl font-bold">月卡会员</h3>
+										<div className="text-3xl font-bold mt-2">
+											¥30<span className="text-lg font-normal">/月</span>
+										</div>
+										<p className="text-sm mt-2 opacity-80">
+											最适合大多数邻居的选择
+										</p>
+									</div>
+
+									<div className="space-y-4 mb-6">
+										{BENEFITS.map(({ icon, title, desc }, idx) => {
+											return (
+												<div
+													className="benefit-item mb-4 flex items-center"
+													key={idx}
+												>
+													<div
+														className={clsx(
+															'benefit-icon',
+															'size-[40px] rounded-full bg-[rgba(255,255,255,0.2)]',
+															'mr-4 flex shrink-0 items-center justify-center'
+														)}
+													>
+														<Icon name={icon} className="text-white" />
+													</div>
+													<div>
+														<p className="font-medium">{title}</p>
+														<p className="text-sm opacity-80">{desc}</p>
+													</div>
+												</div>
+											)
+										})}
+									</div>
+
+									<a
+										href="#monthly"
+										className="bg-white text-purple-600 font-semibold py-3 rounded-lg hover:bg-gray-100 block w-full text-center transition-colors"
+									>
+										查看全部权益
+									</a>
+								</div>
+							</Animated>
 						</div>
 					</div>
 
 					{/* 会员类型概览 */}
-					<div className="mt-16">
-						<h3 className="text-2xl font-bold mb-6 text-center">
-							选择适合您的会员类型
-						</h3>
-						<div
-							className={clsx(
-								styles['membership-overview'],
-								'py-5 gap-4 lg:grid-cols-5 grid grid-cols-2'
-							)}
-						>
-							{MEMBERSHIP_TYPES.map(({ id, icon, name, price, desc }, idx) => {
-								const isMonthly = id === 'monthly'
-								return (
-									<div
-										key={idx}
-										className={clsx(
-											'membership-type',
-											'm-w-[160px] p-5 rounded-xl relative border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.1)] text-center transition-all',
-											'hover:bg-rgba(255,255,255,0.2) hover:-translate-y-[5px]',
-											{
-												'border-[2px] border-[rgba(255,255,255,0.4)] bg-[rgba(255,255,255,0.2)]':
-													isMonthly
-											}
-										)}
-									>
-										{isMonthly && (
+					<Animated>
+						<div className="mt-16">
+							<h3 className="text-2xl font-bold mb-6 text-center">
+								选择适合您的会员类型
+							</h3>
+							<div
+								className={clsx(
+									styles['membership-overview'],
+									'py-5 gap-4 lg:grid-cols-5 grid grid-cols-2'
+								)}
+							>
+								{MEMBERSHIP_TYPES.map(
+									({ id, icon, name, price, desc }, idx) => {
+										const isMonthly = id === 'monthly'
+										return (
 											<div
+												key={idx}
 												className={clsx(
-													'membership-badge',
-													'text-white text-xs py-1 px-2 rounded-lg absolute top-[10px] right-[10px] z-[10] bg-[#F59E0B]'
+													'membership-type',
+													'm-w-[160px] p-5 rounded-xl relative border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.1)] text-center transition-all',
+													'hover:bg-rgba(255,255,255,0.2) hover:-translate-y-[5px]',
+													{
+														'border-[2px] border-[rgba(255,255,255,0.4)] bg-[rgba(255,255,255,0.2)]':
+															isMonthly
+													}
 												)}
 											>
-												最受欢迎
-											</div>
-										)}
+												{isMonthly && (
+													<div
+														className={clsx(
+															'membership-badge',
+															'text-white text-xs py-1 px-2 rounded-lg absolute top-[10px] right-[10px] z-[10] bg-[#F59E0B]'
+														)}
+													>
+														最受欢迎
+													</div>
+												)}
 
-										<div
-											className={clsx(
-												'membership-icon',
-												'mb-4 mx-auto flex size-[50px] items-center justify-center rounded-full bg-[rgba(255,255,255,0.2)]'
-											)}
-										>
-											<Icon name={icon} className="text-white" />
-										</div>
-										<h4 className="font-bold text-lg">{name}</h4>
-										<div className="membership-price text-2xl font-bold my-2">
-											{price}
-										</div>
-										<p className="membership-desc text-sm mb-4 min-h-[40px] opacity-90">
-											{desc}
-										</p>
-										<a
-											href={`#${id}`}
-											className={clsx(
-												'text-sm py-2 px-4 rounded-lg inline-block transition-colors',
-												isMonthly
-													? 'text-purple-600 bg-white hover:bg-[rgba(255,255,255,0.9)]'
-													: 'text-white bg-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.3)]'
-											)}
-										>
-											{isMonthly ? '立即加入' : '了解详情'}
-										</a>
-									</div>
-								)
-							})}
+												<div
+													className={clsx(
+														'membership-icon',
+														'mb-4 mx-auto flex size-[50px] items-center justify-center rounded-full bg-[rgba(255,255,255,0.2)]'
+													)}
+												>
+													<Icon name={icon} className="text-white" />
+												</div>
+												<h4 className="font-bold text-lg">{name}</h4>
+												<div className="membership-price text-2xl font-bold my-2">
+													{price}
+												</div>
+												<p className="membership-desc text-sm mb-4 min-h-[40px] opacity-90">
+													{desc}
+												</p>
+												<a
+													href={`#${id}`}
+													className={clsx(
+														'text-sm py-2 px-4 rounded-lg inline-block transition-colors',
+														isMonthly
+															? 'text-purple-600 bg-white hover:bg-[rgba(255,255,255,0.9)]'
+															: 'text-white bg-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.3)]'
+													)}
+												>
+													{isMonthly ? '立即加入' : '了解详情'}
+												</a>
+											</div>
+										)
+									}
+								)}
+							</div>
 						</div>
-					</div>
+					</Animated>
 				</div>
-			</section>
+			</Banner>
 
 			{/* 免费会员 */}
-			<FreeMemberSection />
+			<Animated>
+				<FreeMemberSection />
+			</Animated>
 
 			{/* 邻里印象服务 */}
-			<NeighborhoodImpressionSection />
+			<Animated>
+				<NeighborhoodImpressionSection />
+			</Animated>
 
 			{/* 月卡会员 */}
-			<MonthlyMemberSection />
+			<Animated>
+				<MonthlyMemberSection />
+			</Animated>
 
 			{/* VIP会员 */}
-			<VipMemberSection />
+			<Animated>
+				<VipMemberSection />
+			</Animated>
 
 			{/* 合作伙伴会员 */}
-			<PartnerMemberSection />
+			<Animated>
+				<PartnerMemberSection />
+			</Animated>
 
 			{/* 简洁版联系我们 */}
 			<section

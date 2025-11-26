@@ -71,7 +71,7 @@ export const FOOTER_LINKS: {
 		title: '关注我们',
 		links: [
 			{
-				href: '#',
+				href: OUTER_LINKS['aboutNextdoor'],
 				text: '微信公众号'
 			}
 			// {

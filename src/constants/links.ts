@@ -11,5 +11,8 @@ export const OUTER_LINKS = {
 	versionUpdateLogs: 'https://mp.weixin.qq.com/s/0J6Vdaa6O6i6Op7paA6Rrw',
 
 	// 提问与建议
-	suggestions: 'https://mp.weixin.qq.com/s/-LltcqgfrqoqRf48vg2I8A'
+	suggestions: 'https://mp.weixin.qq.com/s/-LltcqgfrqoqRf48vg2I8A',
+
+	//关于邻里社交
+	aboutNextdoor: 'https://mp.weixin.qq.com/s/FkY0xUKjyO2zcMmfH99Wog'
 }

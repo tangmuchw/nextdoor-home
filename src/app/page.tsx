@@ -4,7 +4,7 @@ import clsx from 'clsx'
 
 import { useEffect, useState } from 'react'
 
-import { AppImage, Icon, PageContainer } from '@/components'
+import { Animated, AppImage, Banner, Icon, PageContainer } from '@/components'
 import AppButton from '@/components/AppButton'
 import { OUTER_LINKS } from '@/constants/links'
 import { HOME_NAV_LINKS } from '@/constants/nav'
@@ -120,203 +120,208 @@ export default function Home() {
 
 	return (
 		<PageContainer header={{ links: HOME_NAV_LINKS }}>
-			{/* banner */}
-			<section className="banner-section text-white relative overflow-hidden bg-linear-135 from-[#8B5CF6] to-[#6D28D9]">
-				<div
-					className={clsx('top-0 left-0 banner-pattern absolute size-full')}
-				></div>
-
+			<Banner>
 				<div className="px-5 py-24 relative z-10 container mx-auto">
-					<div className="lg:grid-cols-2 gap-12 grid grid-cols-1 items-center">
-						<div className="lg:text-left text-center">
-							<h2 className="text-4xl md:text-5xl font-bold mb-5">
-								邻里社交，传递善意
-							</h2>
-							<p className="text-lg mb-8">
-								Nextdoor
-								是专为邻里设计的微信小程序社交平台，让您与「邻居」建立联系，交换资源，获取本地最鲜活的资讯，获得帮助。
-							</p>
-						</div>
-						<div className="rounded-xl p-8 flex flex-col items-center border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.15)] text-center">
-							<div className="bg-white w-48 h-48 rounded-lg p-4 shadow-lg mb-5">
-								<div className="bg-gray-100 rounded flex size-full animate-plus items-center justify-center">
-									<AppImage
-										src="/imgs/mp_code_430x430.jpg"
-										width={430}
-										height={430}
-										loading="eager"
-									/>
-								</div>
-							</div>
-							<div className="text-white">
-								<h3 className="text-xl font-semibold mb-2">
-									扫码体验 nextdoor
-								</h3>
-								<p className="text-white/90">
-									使用微信扫一扫，立即体验邻里社交小程序
+					<Animated>
+						<div className="lg:grid-cols-2 gap-12 grid grid-cols-1 items-center">
+							<div className="lg:text-left text-center">
+								<h2 className="text-4xl md:text-5xl font-bold mb-5">
+									邻里社交，传递善意
+								</h2>
+								<p className="text-lg mb-8">
+									Nextdoor
+									是专为邻里设计的微信小程序社交平台，让您与「邻居」建立联系，交换资源，获取本地最鲜活的资讯，获得帮助。
 								</p>
 							</div>
+							<div className="rounded-xl p-8 flex flex-col items-center border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.15)] text-center">
+								<div className="bg-white w-48 h-48 rounded-lg p-4 shadow-lg mb-5">
+									<div className="bg-gray-100 rounded flex size-full animate-plus items-center justify-center">
+										<AppImage
+											src="/imgs/mp_code_430x430.jpg"
+											width={430}
+											height={430}
+											loading="eager"
+										/>
+									</div>
+								</div>
+								<div className="text-white">
+									<h3 className="text-xl font-semibold mb-2">
+										扫码体验 nextdoor
+									</h3>
+									<p className="text-white/90">
+										使用微信扫一扫，立即体验邻里社交小程序
+									</p>
+								</div>
+							</div>
 						</div>
-					</div>
+					</Animated>
 				</div>
-			</section>
+			</Banner>
 
 			{/* 核心功能 */}
 			<section className="feature-section py-20 bg-gray-50" id="discover">
-				<div className="px-5 container mx-auto">
-					<div className="mb-12 text-center">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4">发现</h2>
-						<p className="text-gray-600 max-w-2xl mx-auto">
-							探索 Nextdoor 如何帮助您与邻居建立联系，解决生活问题
-						</p>
-					</div>
-					<div className="md:grid-cols-2 lg:grid-cols-4 gap-6 grid grid-cols-1">
-						{FEATURES.map(({ icon, title, desc }, idx) => {
-							return (
-								<div
-									key={idx}
-									className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 text-center transition-all"
-								>
-									<div className="bg-primary-10 w-16 h-16 mb-5 mx-auto flex items-center justify-center rounded-full">
-										<Icon name={icon} className="text-purple-600 text-xl" />
+				<Animated>
+					<div className="px-5 container mx-auto">
+						<div className="mb-12 text-center">
+							<h2 className="text-3xl md:text-4xl font-bold mb-4">发现</h2>
+							<p className="text-gray-600 max-w-2xl mx-auto">
+								探索 Nextdoor 如何帮助您与邻居建立联系，解决生活问题
+							</p>
+						</div>
+						<div className="md:grid-cols-2 lg:grid-cols-4 gap-6 grid grid-cols-1">
+							{FEATURES.map(({ icon, title, desc }, idx) => {
+								return (
+									<div
+										key={idx}
+										className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 text-center transition-all"
+									>
+										<div className="bg-primary-10 w-16 h-16 mb-5 mx-auto flex items-center justify-center rounded-full">
+											<Icon name={icon} className="text-purple-600 text-xl" />
+										</div>
+										<h3 className="text-xl font-semibold mb-3">{title}</h3>
+										<p className="text-gray-600">{desc}</p>
 									</div>
-									<h3 className="text-xl font-semibold mb-3">{title}</h3>
-									<p className="text-gray-600">{desc}</p>
-								</div>
-							)
-						})}
+								)
+							})}
+						</div>
 					</div>
-				</div>
+				</Animated>
 			</section>
 
 			{/* 会员服务 */}
 			<section className="vip-section py-20 bg-white" id="vip">
-				<div className="px-4 container mx-auto">
-					<h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
-						会员服务
-					</h2>
-					<p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto text-center">
-						选择适合您的会员服务，享受更多邻里社交特权
-					</p>
+				<Animated>
+					<div className="px-4 container mx-auto">
+						<h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
+							会员服务
+						</h2>
+						<p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto text-center">
+							选择适合您的会员服务，享受更多邻里社交特权
+						</p>
 
-					<div className="md:grid-cols-2 gap-8 max-w-4xl mx-auto grid grid-cols-1">
-						{MEMBERS.map(({ id, title, price, period, benefits }, idx) => {
-							const isMonthVip = id === 'month-vip'
+						<div className="md:grid-cols-2 gap-8 max-w-4xl mx-auto grid grid-cols-1">
+							{MEMBERS.map(({ id, title, price, period, benefits }, idx) => {
+								const isMonthVip = id === 'month-vip'
 
-							return (
-								<div
-									className={clsx(
-										'membership-card rounded-2xl bg-white shadow-md flex flex-col',
-										'overflow-hidden',
-										'ease-liner transition-all duration-300',
-										'hover:-translate-y-1 hover:shadow-xl',
-										{
-											'relative border-2 border-[#8B5CF6]': isMonthVip
-										}
-									)}
-									key={idx}
-								>
-									{isMonthVip && (
-										<div className="text-white font-semibold absolute top-[4px] right-[-22px] rotate-45 bg-[#8B5CF6] px-[30px] py-[5px] text-center text-[12px]">
-											推荐
+								return (
+									<div
+										className={clsx(
+											'membership-card rounded-2xl bg-white shadow-md flex flex-col',
+											'overflow-hidden',
+											'ease-liner transition-all duration-300',
+											'hover:-translate-y-1 hover:shadow-xl',
+											{
+												'relative border-2 border-[#8B5CF6]': isMonthVip
+											}
+										)}
+										key={idx}
+									>
+										{isMonthVip && (
+											<div className="text-white font-semibold absolute top-[4px] right-[-22px] rotate-45 bg-[#8B5CF6] px-[30px] py-[5px] text-center text-[12px]">
+												推荐
+											</div>
+										)}
+
+										<div className="membership-header text-white p-5 bg-linear-135 from-[#8B5CF6] to-[#6D28D9] text-center">
+											<h3 className="text-xl font-semibold">{title}</h3>
+											<div className="membership-price font-bold my-4 text-[2.5rem]">
+												￥{price}
+											</div>
+											<div className="membership-period text-[0.9rem] opacity-80">
+												{period}
+											</div>
 										</div>
-									)}
 
-									<div className="membership-header text-white p-5 bg-linear-135 from-[#8B5CF6] to-[#6D28D9] text-center">
-										<h3 className="text-xl font-semibold">{title}</h3>
-										<div className="membership-price font-bold my-4 text-[2.5rem]">
-											￥{price}
+										{/* 权益 */}
+										<div className="membership-FEATURES p-5 flex-grow">
+											{benefits.map((txt, bIdx) => {
+												return (
+													<div
+														className="membership-feature align-center mb-2 flex"
+														key={bIdx}
+													>
+														<Icon
+															name="faCheckCircle"
+															className="mr-2 mt-1 text-[#8B5CF6]"
+														/>
+														<span>{txt}</span>
+													</div>
+												)
+											})}
 										</div>
-										<div className="membership-period text-[0.9rem] opacity-80">
-											{period}
-										</div>
-									</div>
 
-									{/* 权益 */}
-									<div className="membership-FEATURES p-5 flex-grow">
-										{benefits.map((txt, bIdx) => {
-											return (
-												<div
-													className="membership-feature align-center mb-2 flex"
-													key={bIdx}
+										{isMonthVip && (
+											<div className="p-4 border-gray-100 border-t">
+												<AppButton
+													type="primary"
+													size="sm"
+													className="w-full"
+													href="/"
 												>
-													<Icon
-														name="faCheckCircle"
-														className="mr-2 mt-1 text-[#8B5CF6]"
-													/>
-													<span>{txt}</span>
-												</div>
-											)
-										})}
+													了解详情
+												</AppButton>
+											</div>
+										)}
 									</div>
+								)
+							})}
+						</div>
 
-									{isMonthVip && (
-										<div className="p-4 border-gray-100 border-t">
-											<AppButton
-												type="primary"
-												size="sm"
-												className="w-full"
-												href="/"
-											>
-												了解详情
-											</AppButton>
-										</div>
-									)}
-								</div>
-							)
-						})}
+						{/* 查看更多会员服务链接 */}
+						<Animated>
+							<div className="mt-12 text-center">
+								<AppButton type="link" href={PAGE_PATHS['member']}>
+									<span>查看更多会员服务详情</span>
+									<Icon name="faArrowRight" className="ml-2"></Icon>
+								</AppButton>
+							</div>
+						</Animated>
 					</div>
-
-					{/* 查看更多会员服务链接 */}
-					<div className="mt-12 text-center">
-						<AppButton type="link" href={PAGE_PATHS['member']}>
-							<span>查看更多会员服务详情</span>
-							<Icon name="faArrowRight" className="ml-2"></Icon>
-						</AppButton>
-					</div>
-				</div>
+				</Animated>
 			</section>
 
 			{/* 附加服务 */}
 			<section className="additional-section bg-gray-50 py-20" id="additional">
-				<div className="px-5 container mx-auto">
-					<div className="mb-12 text-center">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4">附加服务</h2>
-						<p className="text-gray-600 max-w-2xl mx-auto">
-							更多增值服务，提升您的邻里社交体验
-						</p>
-					</div>
-					<div className="md:grid-cols-2 gap-8 max-w-4xl mx-auto grid grid-cols-1">
-						{ADDITIONAL_SERVICES.map(({ id, icon, title, desc, price }) => {
-							const isImpression = id === 'impression'
+				<Animated>
+					<div className="px-5 container mx-auto">
+						<div className="mb-12 text-center">
+							<h2 className="text-3xl md:text-4xl font-bold mb-4">附加服务</h2>
+							<p className="text-gray-600 max-w-2xl mx-auto">
+								更多增值服务，提升您的邻里社交体验
+							</p>
+						</div>
+						<div className="md:grid-cols-2 gap-8 max-w-4xl mx-auto grid grid-cols-1">
+							{ADDITIONAL_SERVICES.map(({ id, icon, title, desc, price }) => {
+								const isImpression = id === 'impression'
 
-							return (
-								<div
-									key={id}
-									className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg flex flex-col items-center text-center transition-all"
-								>
-									<div className="bg-primary-10 w-14 h-14 mb-5 flex items-center justify-center rounded-full">
-										<Icon name={icon} className="text-purple-600 text-xl" />
-									</div>
-									<h3 className="text-xl font-semibold mb-3">{title}</h3>
-									<p className="text-gray-600 mb-5">{desc}</p>
-									{isImpression ? (
-										<AppButton
-											type="link"
-											href={OUTER_LINKS['neighborhoodImpressionIntro']}
-										>
-											{price}
-										</AppButton>
-									) : (
-										<div className="text-purple-600 text-lg font-bold flex min-h-[48px] items-center">
-											{price}
+								return (
+									<div
+										key={id}
+										className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg flex flex-col items-center text-center transition-all"
+									>
+										<div className="bg-primary-10 w-14 h-14 mb-5 flex items-center justify-center rounded-full">
+											<Icon name={icon} className="text-purple-600 text-xl" />
 										</div>
-									)}
-								</div>
-							)
-						})}
+										<h3 className="text-xl font-semibold mb-3">{title}</h3>
+										<p className="text-gray-600 mb-5">{desc}</p>
+										{isImpression ? (
+											<AppButton
+												type="link"
+												href={OUTER_LINKS['neighborhoodImpressionIntro']}
+											>
+												{price}
+											</AppButton>
+										) : (
+											<div className="text-purple-600 text-lg font-bold flex min-h-[48px] items-center">
+												{price}
+											</div>
+										)}
+									</div>
+								)
+							})}
+						</div>
 					</div>
-				</div>
+				</Animated>
 			</section>
 
 			{isMobile && (

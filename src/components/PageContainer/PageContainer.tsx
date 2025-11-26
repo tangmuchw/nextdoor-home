@@ -72,7 +72,7 @@ const PageContainer: React.FC<PropsWithChildren<PageContainerProps>> = ({
 	return (
 		<div
 			className={clsx(
-				'page-container min-w-xs relative min-h-full w-full',
+				'page-container min-w-xs relative box-border w-full',
 				className,
 				{
 					'pt-16': showHeader
@@ -83,9 +83,7 @@ const PageContainer: React.FC<PropsWithChildren<PageContainerProps>> = ({
 			{showHeader && <Header {...headerProps} />}
 
 			{/* 正文 */}
-			<main className="page-container-content relative mx-auto">
-				{children}
-			</main>
+			<main className="page-container-content relative">{children}</main>
 
 			{/* 底部 */}
 			{showFooter && <Footer {...footerProps} />}

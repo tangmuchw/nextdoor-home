@@ -35,6 +35,7 @@ const Header: React.FC<HeaderProps> = props => {
 	}
 
 	const showNavPC = !isMobile
+	const showNavMobile = isMobile && links && links?.length > 0
 	const navLinkNum = links ? links.length : 0
 	const mpPathURLHomeClick = generateMpPathURL('home', 'click')
 
@@ -95,7 +96,7 @@ const Header: React.FC<HeaderProps> = props => {
 						</nav>
 					)}
 
-					{isMobile && (
+					{showNavMobile && (
 						<button
 							className="mobile-menu-btn text-primary z-nav rounded-lg p-2 text-xl border-none bg-transparent transition-all duration-300"
 							onClick={openMobileMenu}
@@ -107,7 +108,7 @@ const Header: React.FC<HeaderProps> = props => {
 			</header>
 
 			{/* 首页-移动端导航菜单 */}
-			{isMobile && (
+			{showNavMobile && (
 				<div
 					className={clsx(
 						'mobile-nav',

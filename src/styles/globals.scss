@@ -27,6 +27,7 @@
     html,
     body {
         height: 100%;
+        min-height: 100vh;
     }
 
     html {
@@ -95,13 +96,7 @@
         overflow: visible;
     }
 
-    /** banner 装饰 */
-    .banner-pattern {
-        background-image:
-            radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.8) 2px, transparent 0),
-            radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.6) 1px, transparent 0);
-        background-size: 50px 50px, 30px 30px;
-    }
+
 }
 
 @theme {

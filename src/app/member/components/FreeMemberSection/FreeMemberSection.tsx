@@ -4,7 +4,7 @@ import clsx from 'clsx'
 
 import React from 'react'
 
-import { Icon } from '@/components'
+import { Animated, Icon } from '@/components'
 
 import { FREE_BENEFITS, SELF_SERVICES } from './config'
 import type { FreeMemberSectionProps } from './interface'
@@ -22,28 +22,31 @@ const FreeMemberSection: React.FC<FreeMemberSectionProps> = props => {
 					基础功能完全免费，让每位「邻居」都能享受社区便利
 				</p>
 
-				<div className="md:grid-cols-2 gap-8 stagger-animation grid grid-cols-1">
-					{FREE_BENEFITS.map(({ icon, title, desc }, idx) => {
-						return (
-							<div
-								key={idx}
-								className={clsx(
-									'service-card',
-									'bg-white rounded-lg p-6 shadow-md border border-[#f0f0f0] transition-all',
-									'hover:shadow-lg hover:-translate-y-[5px]'
-								)}
-							>
-								<div className="w-14 h-14 bg-purple-100 mb-4 flex items-center justify-center rounded-full">
-									<Icon name={icon} className="text-purple-600 text-xl" />
+				{/* 功能体验 */}
+				<Animated>
+					<div className="md:grid-cols-2 gap-8 grid grid-cols-1">
+						{FREE_BENEFITS.map(({ icon, title, desc }, idx) => {
+							return (
+								<div
+									key={idx}
+									className={clsx(
+										'service-card',
+										'bg-white rounded-lg p-6 shadow-md border border-[#f0f0f0] transition-all',
+										'hover:shadow-lg hover:-translate-y-[5px]'
+									)}
+								>
+									<div className="w-14 h-14 bg-purple-100 mb-4 flex items-center justify-center rounded-full">
+										<Icon name={icon} className="text-purple-600 text-xl" />
+									</div>
+									<h3 className="text-xl font-semibold text-gray-800 mb-3">
+										{title}
+									</h3>
+									<p className="text-gray-600">{desc}</p>
 								</div>
-								<h3 className="text-xl font-semibold text-gray-800 mb-3">
-									{title}
-								</h3>
-								<p className="text-gray-600">{desc}</p>
-							</div>
-						)
-					})}
-				</div>
+							)
+						})}
+					</div>
+				</Animated>
 
 				<div className="mt-12 bg-white rounded-xl shadow-lg border-gray-100 p-6 border">
 					<h3 className="text-xl font-semibold text-gray-800 mb-4">
