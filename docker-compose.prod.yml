@@ -9,7 +9,7 @@ services:
     container_name: nextdoor-home
     restart: unless-stopped
     ports:
-      - '3000:3000'
+      - '3001:3001'
     environment:
       - TZ=Asia/Shanghai
     security_opt:

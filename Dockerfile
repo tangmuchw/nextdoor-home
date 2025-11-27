@@ -79,6 +79,9 @@ COPY --from=builder /app/.next/static ./.next/static
 RUN printf '{"app_env":"%s","app_tag":"%s","build_time":"%s"}\n' \
     "$APP_ENV" "$APP_TAG" "$(date +%Y-%m-%d_%H:%M:%S)" > /app/version.json
 
+ENV PORT=3001
+
 # 暴露端口并启动
-EXPOSE 3000
+EXPOSE 3001
+
 CMD ["node", "server.js"]
