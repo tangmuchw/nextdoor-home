@@ -132,14 +132,15 @@ const Header: React.FC<HeaderProps> = props => {
 					<nav className="nav-menus gap-4 p-5 flex max-h-[calc(100vh-64px)] w-full flex-col overflow-y-auto">
 						{links &&
 							links.map(({ id, title }, idx) => {
+								const href = id === 'experience' ? mpPathURLHomeClick : `#${id}`
+
 								return (
 									<Link
 										key={id}
-										href={`#${id}`}
+										href={href}
 										className={clsx(
 											'mobile-nav-link',
-											'text-black rounded-lg px-4 py-3 font-medium text-3xl',
-											// 'transition-all duration-400 ease-in-out',
+											'text-black rounded-lg px-4 py-3 font-medium text-xl',
 											isMenuOpen
 												? `translate-y-0 animate-fade-in opacity-100 animate-delay-${(idx + 1) * 100}`
 												: `-translate-y-3 animate-fade-out opacity-0 animate-delay-${(navLinkNum - idx) * 100}`
