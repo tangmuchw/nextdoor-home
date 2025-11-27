@@ -17,7 +17,7 @@ COMPOSE_FILES=(
 )
 
 log_info "🚀 Start deploying..."
-log_info "👉 Environment: prod"
+log_info "👉 Environment: ${APP_ENV}"
 
 # 获取最新的 Git tag
 APP_TAG=$(get_app_tag)

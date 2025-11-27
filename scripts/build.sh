@@ -8,7 +8,7 @@ export APP_ENV=$ENV
 DEPLOY_ENV_FILE=".env"
 
 log_info "🚀 Start building..."
-log_info "👉 Environment: prod"
+log_info "👉 Environment: ${APP_ENV}"
 
 # 检查Docker
 check_command docker
