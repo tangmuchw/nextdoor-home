@@ -71,7 +71,6 @@ RUN apk add --no-cache tzdata \
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/static ./.next/static
-
 # COPY  ./.next/standalone /app
 # COPY  ./.next/static /app/.next/static
 # COPY ./public /app/public

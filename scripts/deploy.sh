@@ -12,8 +12,8 @@ DEPLOY_ENV_FILE=".env"
 BUILD_ENV_FILE=".env.${APP_ENV}"
 COMPOSE_FILE_OPTION="-f docker-compose.${APP_ENV}.yml"
 COMPOSE_FILES=(
-  ".env.prod"
-  "docker-compose.prod.yml"
+  ".env.${APP_ENV}"
+  "docker-compose.${APP_ENV}.yml"
 )
 
 log_info "🚀 Start deploying..."

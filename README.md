@@ -8,7 +8,7 @@
 - 启动命令:
 
 ```bash
-yarn dev
+yarn development
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -17,14 +17,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ```sh
 
-docker compose -f docker-compose.dev.yml --env-file .env.dev -p nextdoor-home-dev up -d --no-build
-docker compose -f docker-compose.dev.yml --env-file .env.dev -p nextdoor-home-dev down
+docker compose -f docker-compose.development.yml --env-file .env.development -p nextdoor-home-development up -d --no-build
+docker compose -f docker-compose.development.yml --env-file .env.development -p nextdoor-home-development down
 
-docker compose -f docker-compose.prod.yml --env-file .env.prod -p nextdoor-home-prod up -d --no-build
-docker compose -f docker-compose.prod.yml --env-file .env.prod -p nextdoor-home-prod down
+docker compose -f docker-compose.production.yml --env-file .env.production -p nextdoor-home-production up -d --no-build
+docker compose -f docker-compose.production.yml --env-file .env.production -p nextdoor-home-production down
 
-docker-compose -f docker-compose.prod.yml --env-file .env.prod -p nextdoor-home-prod up -d --no-build
-docker-compose -f docker-compose.prod.yml --env-file .env.prod -p nextdoor-home-prod down
+docker-compose -f docker-compose.production.yml --env-file .env.production -p nextdoor-home-production up -d --no-build
+docker-compose -f docker-compose.production.yml --env-file .env.production -p nextdoor-home-production down
 ```
 
 ## env 文件说明
