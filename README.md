@@ -22,6 +22,9 @@ docker compose -f docker-compose.dev.yml --env-file .env.dev -p nextdoor-home-de
 
 docker compose -f docker-compose.prod.yml --env-file .env.prod -p nextdoor-home-prod up -d --no-build
 docker compose -f docker-compose.prod.yml --env-file .env.prod -p nextdoor-home-prod down
+
+docker-compose -f docker-compose.prod.yml --env-file .env.prod -p nextdoor-home-prod up -d --no-build
+docker-compose -f docker-compose.prod.yml --env-file .env.prod -p nextdoor-home-prod down
 ```
 
 ## env 文件说明
