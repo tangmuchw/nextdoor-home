@@ -8,11 +8,17 @@ export APP_ENV=$ENV
 sh scripts/build.sh $APP_ENV
 
 
+# BUILD_ENV="production"
+# if [ APP_ENV = "dev"]; then
+#   BUILD_ENV="development"
+# fi
+# BUILD_ENV_FILE=".env.${BUILD_ENV}"
+
+
 DEPLOY_ENV_FILE=".env"
-BUILD_ENV_FILE=".env.${APP_ENV}"
 COMPOSE_FILE_OPTION="-f docker-compose.${APP_ENV}.yml"
 COMPOSE_FILES=(
-  ".env.${APP_ENV}"
+  # ".env.production"
   "docker-compose.${APP_ENV}.yml"
 )
 
@@ -72,10 +78,10 @@ ssh -i $SERVER_ACCESS_PRIVATE_KEY root@$SERVER_IP bash << EOF
   cd $APP_COMPOSE_DIR
 
   echo "✨ Stop the previously running image"
-  docker-compose ${COMPOSE_FILE_OPTION} --env-file ${BUILD_ENV_FILE} -p ${COMPOSE_PROJECT_NAME} down
+  docker-compose ${COMPOSE_FILE_OPTION} -p ${COMPOSE_PROJECT_NAME} down
 
   echo "✨ Restart the latest version of the image"
-  docker-compose ${COMPOSE_FILE_OPTION} --env-file ${BUILD_ENV_FILE} -p ${COMPOSE_PROJECT_NAME} up -d --no-build
+  docker-compose ${COMPOSE_FILE_OPTION} -p ${COMPOSE_PROJECT_NAME} up -d --no-build
 
   echo "✨ Delete the image compressed package: ${IMAGE_TAR_FILE}"
   rm -rf $APP_TEMP_DIR/$IMAGE_TAR_FILE

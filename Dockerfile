@@ -44,7 +44,7 @@ RUN --mount=type=cache,target=/app/.next/cache \
     --mount=type=cache,target=/root/.yarn \
     NODE_OPTIONS="--max-old-space-size=4096" \
     NEXT_TELEMETRY_DISABLED=1 \
-    yarn build:${APP_ENV} --experimental-app-only
+    yarn build --experimental-app-only
 
 
 # ========== 阶段3: 生产运行时 ==========

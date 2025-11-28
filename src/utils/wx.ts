@@ -20,8 +20,7 @@ export const generateMpPathURL = (
 
 	switch (trigger) {
 		case 'click': {
-			// const appId = process.env.NEXT_PUBLIC_NEXTDOOR_WEIXIN_APP_ID
-			const appId = 'wx54e1224e1cb06f53'
+			const appId = process.env.NEXT_PUBLIC_NEXTDOOR_WEIXIN_APP_ID
 			const path = NEXTDOOR_WE_XIN_MP_PAGE_PATHS[pathName]
 
 			// pathParams 最大 512 个字符
