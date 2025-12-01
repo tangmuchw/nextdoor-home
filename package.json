@@ -30,6 +30,7 @@
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"babel-plugin-react-compiler": "1.0.0",
+		"baseline-browser-mapping": "^2.8.32",
 		"cross-env": "^10.1.0",
 		"cssnano": "^7.1.2",
 		"eslint": "^9",
